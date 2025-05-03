@@ -121,7 +121,7 @@ function validate(){
                     <input type="tel" name="tel" id="tel" placeholder="" onChange={handleChange} value={formData.tel} />
                 </div>
                 <p></p>
-                <button class="sign mt-4">SignUp</button>
+                <button class="sign mt-4 cursor-pointer">SignUp</button>
             </form>
             <div class="social-message">
                 <div class="line"></div>

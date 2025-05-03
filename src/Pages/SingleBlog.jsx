@@ -33,14 +33,14 @@ export default function SingleBlog() {
                 //   <p className='border p-2 mt-2 w-100 mx-auto bg-green-600 rounded font-semibold text-white '>Published On:{singleBlog.createdAt}</p>
 
                 // </div>
-                <div class="flex justify-center items-center min-h-screen my-3">
+                <div class="flex justify-center items-center  my-3">
                     <div class="w-3/4">
                         <div class=" mb-4 mt-4 text-2xl text-center font-bold pb-2 ">
                             Blog Details
                         </div>
 
                         {/* <!-- Centering wrapper --> */}
-                        <div class="relative flex bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full  flex-row">
+                        <div class="relative flex bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full  flex-row border-gray-800 p-3">
                             <div class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
                                 <img
                                     src={image}

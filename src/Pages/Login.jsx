@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
 import "./login.css"
+import { BASE_URL } from '../utils/config';
 const Login = () => {
     const navigate = useNavigate();
     // Storing Username and password in state
@@ -46,7 +47,7 @@ const Login = () => {
         if (count == 0) {
             console.log("Login Success");
             try {
-                const response = await fetch("/api/v1/auth/login", {
+                const response = await fetch(`${BASE_URL}/api/v1/auth/login`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -73,7 +74,7 @@ const Login = () => {
                       // Store in sessionStorage
                       sessionStorage.setItem("authData", JSON.stringify(authInfo));
                       
-                      navigate("/"); // ✅ Redirect to base URL
+                  {authInfo.role=="user"? navigate("/"): navigate("/admin/dashboard");}    // ✅ Redirect to base URL
                     // window.location.href = "/"; // or use navigate() if using react-router-dom v6+
                 } else {
                     console.error("Login failed", data.message);
@@ -113,7 +114,7 @@ const Login = () => {
                     </div>
                 </div>
                 <p>{passwordError}</p>
-                <button class="sign" onClick={handleLogin}>Login</button>
+                <button class="sign cursor-pointer" onClick={handleLogin}>Login</button>
             </form>
             <div class="social-message">
                 <div class="line"></div>

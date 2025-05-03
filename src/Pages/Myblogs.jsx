@@ -17,16 +17,19 @@ export default function Myblogs() {
   };
   return (
   <>
-    <div className='flex flex-wrap justify-around mt-5 px-12 '>
+   {fAllBlogs[0]? <div className='flex flex-wrap justify-around mt-5 px-12 '>
       {
         fAllBlogs.map((item,index)=>    
             // <BlogCard item={item} key={item._id} onDelete={handleDelete}/>
         <MyBlogCardList item={item} key={item._id} onDelete={handleDelete}/>
       )
       }
+       </div>:
+      <h2 className='text-center font-bold text-2xl h-30 mt-32'>You don't have any created Blogs</h2>
 
-    </div>
-    <div className='text-center mb-4'>
+   
+   }
+    <div className='text-center mb-8'>
        <Link to="/createblog"> <button className='border w-80 bg-green-600 border-none text-white font-bold text-xl rounded cursor-pointer'>Create Blog</button></Link>
        </div>
        </>

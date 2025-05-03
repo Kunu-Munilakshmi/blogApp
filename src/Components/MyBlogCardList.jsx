@@ -1,8 +1,16 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthProvider';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import image from "../assets/hero-section1.png"
 export default function MyBlogCardList({ item, onDelete }) {
     const { authData } = useContext(AuthContext);
+    const navigate=useNavigate();
+    // updating Blog
+    const handleUpdate = () => {
+        navigate("/createblog", { state: { blog: item } }); // 👈 Passing blog data to CreateBlog
+      };
+
+    //   delete blog
     const handleDelete = async () => {
         if (!window.confirm('Are you sure you want to delete this blog?')) return;
 
@@ -30,7 +38,7 @@ export default function MyBlogCardList({ item, onDelete }) {
         <div class="max-w-lg mx-auto my-3">
             <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
                 <a href="#">
-                    <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
+                    <img class="rounded-t-lg" src={image} alt="" />
                 </a>
                 <div class="p-5">
                     <a href="#">
@@ -45,7 +53,7 @@ export default function MyBlogCardList({ item, onDelete }) {
                                 Read more
                             </button>
                           </Link> 
-                            <button className='cursor-pointer bg-blue-500 hover:bg-blue-800 px-5  rounded-lg'>Update</button>
+                            <button className='cursor-pointer bg-blue-500 hover:bg-blue-800 px-5  rounded-lg' onClick={handleUpdate}>Update</button>
                             <button className='cursor-pointer bg-red-500 hover:bg-red-800 px-5  rounded-lg' onClick={handleDelete}>Delete</button>
                         </span>
                     }
