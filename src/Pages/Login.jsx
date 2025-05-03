@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
-import "./login.css"
+import "./Login.css"
 import { BASE_URL } from '../utils/config';
 const Login = () => {
     const navigate = useNavigate();
