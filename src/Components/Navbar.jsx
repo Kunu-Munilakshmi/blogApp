@@ -16,7 +16,7 @@ const Navbar = () => {
     navigate("/");
   };
   return (
-    <nav className="flex items-center justify-between px-12 shadow-md ">
+    <nav className="flex items-center justify-between px-12 shadow-md bg-blue-500 ">
       {/* Left: Logo */}
       <div className="flex items-center space-x-2">
         <Link to={authData.role == "user" ? "/" : "/admin/dashboard"}> <img
