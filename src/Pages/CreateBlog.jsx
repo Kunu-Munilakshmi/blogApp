@@ -82,7 +82,7 @@ export default function CreateBlog() {
       if (response.ok) {
         toast.success(isEditMode ? "Blog updated successfully!" : "Blog created successfully!");
         setForm({ title: "", topic: "", content: "" });
-        navigate("/myblog");
+        navigate("/");
       } else {
         toast.error(result.message || "Failed to submit blog");
       }

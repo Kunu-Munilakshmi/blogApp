@@ -1,29 +1,40 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import { Link } from 'react-router'
+import { AuthContext } from '../context/AuthProvider'
 
 export default function Footer() {
+  const {authData}=useContext(AuthContext);
   return (
 <footer class="bg-gray-100  px-12 py-10 shadow">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
     {/* <!-- Branding --> */}
     <div>
-      <h2 class="text-2xl font-bold">MyBlog</h2>
-      <p class="mt-2 text-sm">Sharing thoughts, ideas, and stories from around the world.</p>
+      <h2 class="text-2xl font-bold">Blog App</h2>
+      <p class="mt-2 text-sm">Welcome to our Blog App, you can register into our app and post your blog so that your blog information will reach to this world.It is a great platform to share your knowledge & formation</p>
     </div>
 
     {/* <!-- Navigation --> */}
     <div>
       <h3 class="text-lg font-semibold  mb-3">Quick Links</h3>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-white transition">Home</a></li>
-        <li><a href="#" class="hover:text-white transition">createblog</a></li>
-        <li><a href="#" class="hover:text-white transition">Blog</a></li>
-        <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+        <li><Link to="/" class="hover:text-white transition">Home</Link></li>
+        <li> <Link
+              to="/myblog"
+                    >
+              {Object.keys(authData).length === 0 ? "Create Blog" : "My Blogs"}
+            </Link></li>
+        <li> <Link
+              to={authData.role !== "user" ? "/about" : "/profile"}
+             
+            >
+              {authData.role !== "user" ? "About Us" : "Profile"}
+            </Link></li>
       </ul>
     </div>
 
     {/* <!-- Social Media --> */}
     <div>
-      <h3 class="text-lg font-semibold text-white mb-3">Follow Us</h3>
+      <h3 class="text-lg font-semibold  mb-5">Follow Us</h3>
       <div class="flex space-x-4">
         <a href="#" class="hover:text-white transition" aria-label="Twitter">
           <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
