@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthProvider';
 import {Link, useNavigate} from 'react-router-dom'
 import image from "../assets/hero-section1.png"
+import { BASE_URL } from '../utils/config';
 export default function MyBlogCardList({ item, onDelete }) {
     const { authData } = useContext(AuthContext);
     const navigate=useNavigate();
@@ -15,7 +16,7 @@ export default function MyBlogCardList({ item, onDelete }) {
         if (!window.confirm('Are you sure you want to delete this blog?')) return;
 
         try {
-            const res = await fetch(`/api/v1/blog/deleteBlog/${item._id}`, {
+            const res = await fetch(`${BASE_URL}/api/v1/blog/deleteBlog/${item._id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${authData.token}`, // ensure token exists in authData

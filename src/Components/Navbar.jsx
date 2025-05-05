@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between px-12 shadow-md">
       {/* Left: Logo */}
       <div className="flex items-center space-x-2">
-        <Link to={authData.role == "user" ? "/" : "/admin/dashboard"}> <img
+        <Link to={authData.role === "admin" ? "/admin/dashboard":"/"}> <img
           src={logo} // Replace with your actual logo path
           alt="Logo"
           className="h-20 w-20 rounded-full"
@@ -32,8 +32,8 @@ const Navbar = () => {
       <ul className="flex items-center space-x-6 font-semibold">
   <li>
     <Link
-      to={authData.role === "user" ? "/" : "/admin/dashboard"}
-      className={isActive(authData.role === "user" ? "/" : "/admin/dashboard") ? "text-blue-600 underline" : ""}
+      to={authData.role === "admin" ? "/admin/dashboard":"/" }
+      className={isActive(authData.role === "admin" ? "/admin/dashboard":"/" ) ? "text-blue-600 underline" : ""}
     >
       Home
     </Link>

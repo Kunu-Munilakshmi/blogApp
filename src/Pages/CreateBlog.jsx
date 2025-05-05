@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from 'react-toastify';
 import { useNavigate, useLocation } from "react-router-dom";
+import { BASE_URL } from "../utils/config";
 export default function CreateBlog() {
   const { authData } = useContext(AuthContext);
   const [form, setForm] = useState({
@@ -64,8 +65,8 @@ export default function CreateBlog() {
     try {
       const response = await fetch(
         isEditMode
-          ? `/api/v1/blog/editblog/${blogId}`
-          : `/api/v1/blog/createNewBlog`,
+          ? `${BASE_URL}/api/v1/blog/editblog/${blogId}`
+          : `${BASE_URL}/api/v1/blog/createNewBlog`,
         {
           method: isEditMode ? "PUT" : "POST",
           headers: {
